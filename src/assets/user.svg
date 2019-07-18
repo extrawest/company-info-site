@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-user);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        opacity: 0.38;
+      }
+    </style>
+    <clipPath id="clip-user">
+      <rect width="16" height="16"/>
+    </clipPath>
+  </defs>
+  <g id="user" class="cls-1">
+    <g id="Group_119" data-name="Group 119" transform="translate(-10 -255)">
+      <rect id="Rectangle_35" data-name="Rectangle 35" class="cls-2" width="16" height="16" transform="translate(10 255)"/>
+      <g id="Group_99" data-name="Group 99" class="cls-3" transform="translate(12 257)">
+        <path id="Path_227" data-name="Path 227" d="M5.544,5.456A2.728,2.728,0,1,1,8.271,2.729,2.731,2.731,0,0,1,5.544,5.456Zm0-4.315A1.586,1.586,0,1,0,7.131,2.728,1.589,1.589,0,0,0,5.544,1.141Z" transform="translate(-0.138)"/>
+        <path id="Path_228" data-name="Path 228" d="M10.24,12.31H3.424a.571.571,0,0,1,0-1.141H9.632a4.264,4.264,0,0,0-8.451,0H1.7a.571.571,0,0,1,0,1.141H.571A.571.571,0,0,1,0,11.739a5.406,5.406,0,1,1,10.811,0A.571.571,0,0,1,10.24,12.31Z" transform="translate(0 -0.31)"/>
+      </g>
+    </g>
+  </g>
+</svg>

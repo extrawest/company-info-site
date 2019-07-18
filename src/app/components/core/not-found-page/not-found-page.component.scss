@@ -1,0 +1,32 @@
+.ui-g {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: #f2f2f2;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+p {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 600;
+  margin: 40px 0;
+}
+
+.not-found-image {
+  background-image: url('../../../../assets/sad_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 30%;
+  text-align: center;
+  margin-top: 40px;
+}

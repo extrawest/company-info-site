@@ -1,0 +1,12 @@
+.header-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.title {
+  font-size: 20px;
+  padding-left: 9px;
+  flex-shrink: 0;
+}

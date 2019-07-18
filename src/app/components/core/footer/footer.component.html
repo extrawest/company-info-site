@@ -1,0 +1,43 @@
+<footer
+  *ngIf="homePage"
+  class="ui-xl-12 ui-lg-12 ui-md-12 ui-sm-12 wrapp-footer"
+  [ngClass]="{ 'homepage-footer': homePage }"
+>
+  <div class="extrawest">
+    <div>Розроблено в</div>
+    <a
+      href="https://www.extrawest.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Extrawest logo"
+    >
+      <div class="extrawest-logo"></div>
+    </a>
+  </div>
+</footer>
+
+<footer
+  *ngIf="!homePage"
+  class="wrapp-footer subpage"
+  [ngClass]="{ 'homepage-footer': homePage }"
+>
+  <div class="container">
+    <div class="footer-information">
+      <div class="rights-reserved">
+        2019 companyinfo.in.ua <br />
+        Усi права захищено
+      </div>
+      <div class="extrawest">
+        <div>Розроблено в</div>
+        <a
+          href="https://www.extrawest.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Extrawest logo"
+        >
+          <div class="extrawest-logo"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

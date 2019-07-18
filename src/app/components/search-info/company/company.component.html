@@ -1,0 +1,180 @@
+<p-toast styleClass="custom-toast"></p-toast>
+<div class="main-wrapper">
+  <app-search-input
+    (companyUpdated)="onCompanyUpdated($event)"
+  ></app-search-input>
+  <main class="wrapp-content">
+    <div *ngFor="let company of companiesRecords; let i = index">
+      <div class="search-details-title">
+        <div class="container">
+          <div class="search-details-title-container">
+            <div class="company-details-status">
+              <h5>Громадська організація</h5>
+            </div>
+
+            <h1 class="company-details-title">
+              {{ company.companyData.name }}
+            </h1>
+            <div class="company-details-code">ЄДРПОУ: {{ company.companyData.edrpou }}</div>
+            <div class="success-color">
+              <p
+                [ngClass]="{
+                  'error-color': company.companyData.status !== 'зареєстровано'
+                }"
+              >
+                {{ company.companyData.status }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="details-info">
+          <div class="accordion">
+            <div class="accordion-title">
+              <div class="accordion-title-left">
+                <h3>Досьє</h3>
+              </div>
+              <div class="accordion-title-right">
+                <a>
+                  <div class="pdf"></div>
+                </a>
+              </div>
+            </div>
+
+            <div
+              *ngFor="let tab of company.tabs"
+              class="{{ tab.class }} flex-column-wrapper"
+            >
+              <div class="flex-row-wrapper flex-row-wrapper__header">
+                <div class="company-info__main-content">{{ tab.header }}</div>
+                <i class="copy" (click)="copy(tab.body)"></i>
+              </div>
+              <div class="flex-row-wrapper">
+                <div
+                  class="company-info__status"
+                  (click)="openGoogleMapsTab(company.companyData.address)"
+                >
+                  {{ tab.body }}
+                </div>
+                <i
+                  class="external-link"
+                  (click)="openGoogleMapsTab(company.companyData.address)"
+                ></i>
+              </div>
+            </div>
+
+            <div
+              class="founders__block"
+              *ngIf="company.founders && company.founders.length > 0"
+            >
+              <div class="company-info flex-column-wrapper">
+                <div class="flex-row-wrapper flex-row-wrapper__header">
+                  <div class="company-info__main-content">
+                    Члени організації
+                  </div>
+                  <div class="founders__count">{{ company.founders.length }}</div>
+                </div>
+
+                <google-chart
+                        class="founders__chart"
+                        *ngIf="company.isShowChart && company.chart"
+                        id="founders_chart_{{ i }}"
+                        on-select="company.selectChartHandler($event)"
+                        (click)="$event.target"
+                        [title]="company.chart.title"
+                        [type]="company.chart.type"
+                        [data]="company.chart.data"
+                        [columnNames]="company.chart.columnNames"
+                        [options]="company.chart.options"
+                        [width]="company.chart.width"
+                        [height]="company.chart.height">
+                </google-chart>
+
+                  <div
+                    class="percentage-label"
+                    *ngIf="company.isShowChart && company.chart"
+                    [ngClass]="(company.chartPercentageValue > 0) ? 'visible' : 'hidden'"
+                  >
+                    {{ company.chartPercentageValue }}%
+                  </div>
+
+                <div
+                  id="founders__list_{{ i }}"
+                  class="founders__list"
+                  [ngClass]="company.isShowAllFounders ? 'list-opened' : 'list-closed'"
+                >
+                  <div
+                    *ngFor="
+                      let item of company.foundersPercentageData;
+                      let j = index"
+                    class="founders__line"
+                  >
+                    <div
+                      class="founders__line-color"
+                      *ngIf="company.isShowChart; else foundersCounter"
+                      [ngStyle]="{ 'background-color': company.colors[j] }"
+                    ></div>
+
+                      <ng-template #foundersCounter>
+                          <span class="founders__counter">{{ j+1 }}.</span>
+                      </ng-template>
+
+                    <div class="founders__line-name">
+                      {{ item[0] | titlecase }}
+                    </div>
+                    <div
+                            *ngIf="company.isShowChart"
+                            class="founders__line-percent"
+                    >
+                      <strong> {{ item[1] }}% </strong>
+                    </div>
+                    <i class="copy" (click)="copy(item[0])"></i>
+                  </div>
+                </div>
+
+                <div
+                  *ngIf="company.foundersPercentageData.length > countOfVisibleFoundersInList"
+                  class="btn-show-more-holder"
+                  (click)="company.showMoreLess()"
+                  >
+                  <div
+                    class="btn-show-more-content"
+                    *ngIf="!company.isShowAllFounders; else showLess"
+                  >
+                    <span> Показати більше</span>
+                    <i class="pi pi-chevron-down"></i>
+                  </div>
+                  <ng-template #showLess>
+                    <div class="btn-show-more-content">
+                      <span>Показати менше</span>
+                      <i class="pi pi-chevron-up"></i>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="company-info--btn-block" *ngIf="isPolitic">
+              <div class="company-info__main-content">
+                <p class="company-info__single-title">
+                  Ця громадська організація є політичною партією
+                </p>
+                <button
+                  class="company-info__btn"
+                  routerLink="/politicalparty/{{ identifier }}_{{ politicName }}"
+                >
+                  Детальніше
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <ngx-json-ld [json]="company.schema"></ngx-json-ld>
+
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,32 @@
+<div class="main-wrapper">
+  <header class="header-content-wrapper">
+    <div class="logo-wrapper">
+      <div class="logo big-logo"></div>
+    </div>
+    <h1 class="app-title">Iнформацiя про компанiю</h1>
+    <form
+      #searchForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      class="search-about-company"
+    >
+      <label for="identifier"></label>
+      <input
+        class="search-about-company__input"
+        pInputText
+        required
+        type="text"
+        placeholder="ЄДРПОУ або ПIБ"
+        [(ngModel)]="identifier"
+        name="searchInput"
+      />
+      <button
+        class="search-about-company__btn"
+        pButton
+        type="submit"
+        [disabled]="searchForm.invalid"
+      ></button>
+    </form>
+  </header>
+  <main class="wrapp-content"></main>
+  <app-footer></app-footer>
+</div>

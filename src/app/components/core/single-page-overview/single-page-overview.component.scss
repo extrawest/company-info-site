@@ -1,0 +1,101 @@
+.search-details-title {
+    text-align: left;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    background: #f2f2f2;
+    border-bottom: 2px solid #eee;
+    padding: 1em 0;
+  }
+  
+  .search-details-title h2 {
+    font-size: 18px;
+  }
+  
+  .search-details-title-container {
+    padding: 0;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  .accordion-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+  }
+  
+  .details-info {
+    height: 100%;
+    .company-info {
+      padding: 12px 0;
+    }
+    .company-info__main-content {
+      font-size: 13px;
+    }
+  }
+  
+  .accordion-title-right {
+    width: 22px;
+  }
+  
+  .accordion-title-right .pdf {
+    background: url('../../../../assets/pdf_download.svg'), no-repeat;
+    background-size: 20px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .accordion-title-left {
+    h3 {
+      font-size: 13px;
+      padding: 0;
+    }
+    span {
+      display: block;
+      font-size: 10px;
+      color: #818181;
+      margin-top: 5px;
+    }
+  }
+  
+  /* Transparent Overlay */
+  .loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(256, 256, 256, 0.8);
+  }
+  
+  .company-details-title {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  .company-info {
+    border-bottom: 1px solid #d5d5d5;
+    padding: 25px 0;
+  }
+  .accordion-title {
+    border-bottom: 1px solid #d5d5d5;
+  }  
+  .activities {
+    flex-direction: column;
+    .company-info__status {
+      text-align: left;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+  .search-result-block {
+    background-color: #f2f2f2;
+    height: 148px;
+  }
+  

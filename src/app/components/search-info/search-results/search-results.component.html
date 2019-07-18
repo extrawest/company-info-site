@@ -1,0 +1,73 @@
+<div class="main-wrapper">
+  <app-search-input></app-search-input>
+  <main class="wrapp-content">
+    <div class="search-results-title">
+      <div class="container">
+        <p>
+          Знайдено <strong>{{ filteredList.length }}</strong> результатів за
+          запитом
+          <strong>«{{ identifier }}»</strong>
+        </p>
+        <div class="button-container">
+          <button
+            *ngFor="let filterButton of filterButtonsList"
+            class="ui-state-highlight ui-button sort-button"
+            (click)="dataFilter(filterButton.value)"
+            [ngClass]="{ active: filterBy === filterButton.value }"
+          >
+            {{ filterButton.name }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-results-body ui-g">
+      <div class="card content-block-02" *ngFor="let card of filteredList">
+        <div class="container">
+          <div class="company-info">
+            <div class="company-info__main-content">
+              <h3 class="company-info__title">
+                <a (click)="navigateDetails(card)">
+                  <div class="name">
+                    <strong>{{ card.fio }} {{ card.name }}</strong>
+                  </div>
+                </a>
+              </h3>
+
+              <div class="kved flex">
+                <i class="icon"></i>
+                <p>{{ card.kved }}</p>
+              </div>
+              <div
+                class="boss flex"
+                [ngClass]="{ 'matched-word': filterBy === 'boss' }"
+              >
+                <i class="icon"></i>
+                <p class="user-title">{{ card.boss }}</p>
+              </div>
+              <div
+                class="founders flex pre-wrap"
+                *ngIf="card.founders"
+                #founders
+              >
+                <p>{{ card.founders }}</p>
+              </div>
+            </div>
+            <div class="company-info__status">
+              <p [ngClass]="{ 'error-color': card.status !== 'зареєстровано' }">
+                {{ card.status }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-div" *ngIf="!filteredList.length"></div>
+      </div>
+      <!-- <div class="content-block-01 pagination-wrapper"></div> -->
+    </div>
+  </main>
+  <app-footer></app-footer>
+  <div class="loading-indicator" *ngIf="showSpinner">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+</div>
