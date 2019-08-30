@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { NotFoundPageComponent } from './components/core/not-found-page/not-found-page.component';
+import { NotFoundPageComponent } from './layout/not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./components/search-info/search-info.module').then(m => m.SearchInfoModule)
+    loadChildren: () => import('./modules/search-info/search-info.module').then(m => m.SearchInfoModule)
   },
   {
     path: '404',
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   {
     path: 'search-list/:identifier',
     loadChildren:
-      () => import('./components/search-info/search-results/search-results.module').then(m => m.SearchResultsModule)
+      () => import('./modules/search-results/search-results.module').then(m => m.SearchResultsModule)
   },
   { path: '**', redirectTo: '/' }
 ];

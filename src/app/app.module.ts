@@ -7,15 +7,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { CompanyService } from './services/company.service';
+import { CompanyService } from './core/services/company.service';
 
-import { FacebookMessengerComponent } from './components/facebook-messenger/facebook-messenger.component';
+import { FacebookMessengerComponent } from './shared/components/facebook-messenger/facebook-messenger.component';
 import { FacebookModule } from 'ngx-facebook';
-import { CoreModule } from './components/core/core.module';
-import { SearchInfoModule } from './components/search-info/search-info.module';
+import { CoreModule } from './modules/core.module';
+import { SearchInfoModule } from './modules/search-info/search-info.module';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { MessageService } from 'primeng/api';
-import { GoogleChartService } from './services/google-chart.service';
+import { GoogleChartService } from './shared/services/google-chart.service';
+import { FacebookSDKService } from './shared/services/facebook-sdk.service';
 
 @NgModule({
   declarations: [AppComponent, FacebookMessengerComponent],
@@ -32,7 +32,7 @@ import { GoogleChartService } from './services/google-chart.service';
       enabled: environment.production
     })
   ],
-  providers: [CompanyService, MessageService, GoogleChartService],
+  providers: [CompanyService, GoogleChartService, FacebookSDKService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -56,7 +56,7 @@ h3 {
   min-height: 25px;
   margin: 10px auto;
   text-align: center;
-  background: url('../src/assets/logo.svg') no-repeat;
+  background: url('../src/assets/images/svg/logo.svg') no-repeat;
 }
 
 .logo-link {
@@ -872,7 +872,7 @@ body .search-about-company__btn {
   width: 40px;
   height: 40px;
   font-size: 10px;
-  background: url('./assets/search_icon.svg'), rgb(255, 196, 0) no-repeat;
+  background: url('../src/assets/images/svg/search_icon.svg'), rgb(255, 196, 0) no-repeat;
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1211,7 +1211,7 @@ div p.error-color {
   margin-top: 6px;
   &::before {
     content: '';
-    background-image: url('assets/img/civil_organization_icon.png');
+    background-image: url('../src/assets/images/png/civil_organization_icon.png');
     position: absolute;
     top: 50%;
     left: 0;

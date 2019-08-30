@@ -1,0 +1,57 @@
+<app-search-input></app-search-input>
+<main class="wrapp-content">
+  <div *ngIf="data">
+    <div class="search-details-title">
+      <div class="container">
+        <div class="search-details-title-container">
+          <div class="company-details-status">
+            <ng-content select="h2"></ng-content>
+          </div>
+          <h1 class="company-details-title">
+            {{ data.record.name || data.record.fio }}
+          </h1>
+          <div class="company-details-code">
+            ЄДРПОУ: {{ data.record.edrpou }}
+          </div>
+          <div class="success-color">
+            <p
+              [ngClass]="{
+                'error-color': data.record.status !== 'зареєстровано'
+              }"
+            >
+              {{ data.record.status }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="details-info">
+        <div class="accordion">
+          <div class="accordion-title">
+            <div class="accordion-title-left">
+              <h3>Досьє</h3>
+            </div>
+            <div class="accordion-title-right">
+              <a>
+                <div class="pdf"></div>
+              </a>
+            </div>
+          </div>
+          <div *ngFor="let tab of tabs" class="{{ tab.class }}">
+            <div class="company-info__main-content">{{ tab.header }}</div>
+            <div class="company-info__status">{{ tab.body }}</div>
+          </div>
+          <ng-content select="div"></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<app-facebook-comments></app-facebook-comments>
+<app-footer></app-footer>
+
+<!-- <div class="loading-indicator" *ngIf="showSpinner">
+  <p-progressSpinner></p-progressSpinner>
+</div> -->
+<ngx-json-ld [json]="schema"></ngx-json-ld>
